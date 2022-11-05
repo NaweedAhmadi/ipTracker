@@ -1,0 +1,143 @@
+:root {
+  --white: #FFF;
+  --black: #000;
+  --dark-gray: #D1D3DD;
+  --very-dark-gray: #68686A;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.header {
+  width: 100%;
+  height: 300px;
+  background-image: url("../images/pattern-bg.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+}
+
+h1 {
+  color: var(--white);
+}
+
+.searchInput {
+  text-align: center;
+  margin: 40px;
+}
+
+input[type=text] {
+  width: 350px;
+  height: 40px;
+  padding-left: 10px;
+  box-sizing: border-box;
+  border-radius: 10px 0 0 10px;
+  border: none;
+}
+
+input[type=text]:focus {
+  outline: none;
+}
+
+button[type="submit"] {
+    margin-left: -7px;
+    width: 50px;
+    height: 40px;
+    border-radius: 0 10px 10px 0;
+    border: none;
+    background-color: var(--black);
+    color: var(--white);
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.ipInfo-box {
+  width: 1000px;
+  height: 130px;
+  border-radius: 10px;
+  background-color: var(--white);
+  position: absolute;
+  top: 235px;
+  left: calc(50% - 500px);
+  z-index: 1;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ipInfo {
+  width: 90%;
+  display: flex;
+  margin: auto 20px;
+}
+
+.ip, .location, .timezone, .isp {
+  width: 25%;
+  padding: 0 20px;
+}
+
+.vl {
+  border-left: 1px solid var(--dark-gray);
+  height: 80px;
+  margin: auto 0;
+}
+
+p {
+  margin: 10px;
+  font-size: 11px;
+  color: var(--very-dark-gray);
+}
+
+p:last-child {
+  font-size: 19px;
+  font-weight: bold;
+  color: var(--black);
+}
+
+.mapBox {
+  width: 100%;
+}
+
+#map {
+  height: calc(100vh - 300px);
+  z-index: 0;
+}
+
+@media screen and (max-width: 1000px) {
+  input[type=text] {
+    width: 300px;
+  }
+
+  .ipInfo-box {
+    width: 350px;
+    height: 320px;
+    left: calc(50% - 175px);
+  }
+
+  .ipInfo {
+    display: block;
+    text-align: center;
+    margin: 20px;
+  }
+
+  .ip, .location, .timezone {
+    width: 80%;
+    border-bottom: solid 1px var(--dark-gray);
+    margin: 10px auto;
+  }
+
+  .isp {
+    width: 80%;
+    margin: 10px auto;
+  }
+
+  .vl {
+    border-left: none;
+    height: 0;
+  }
+}

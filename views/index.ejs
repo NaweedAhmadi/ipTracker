@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/png" sizes="32x32" href="images/ip-address.png">
+  <title>IP Tracker</title>
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/styles.css">
+  <!-- Open Street Map -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.2/dist/leaflet.css" integrity="sha256-sA+zWATbFveLLNqWO2gtiw3HL/lh1giY/Inf1BJ0z14=" crossorigin="" />
+  <script src="https://unpkg.com/leaflet@1.9.2/dist/leaflet.js" integrity="sha256-o9N1jGDZrf5tS+Ft4gbIK7mYMipq9lqpVJ91xHSyKhg=" crossorigin=""></script>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Barlow:wght@200;400&family=Montserrat:wght@100;300;500&family=Ubuntu:wght@300&display=swap" rel="stylesheet">
+  <!-- Font Awesome -->
+  <script src="https://kit.fontawesome.com/d61f8af839.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <div class="wrapper">
+
+    <div class="header">
+      <div class="searchInput">
+        <h1>IP Address Tracker</h1>
+        <form class="" action="/" method="post">
+          <input type="text" name="searchIP" placeholder="Search for any IP address or domain" autocomplete="off">
+          <button type="submit" name="button"><i class="fa-solid fa-chevron-right"></i></button>
+        </form>
+      </div>
+    </div>
+
+    <div class="ipInfo-box">
+      <div class="ipInfo">
+        <div class="ip">
+          <p>IP ADDRESS</p>
+          <p><%= ip %></p>
+        </div>
+        <div class="vl"></div>
+        <div class="location">
+          <p>LOCATION</p>
+          <p><%= region %>, <%= country %> <%= zip %></p>
+        </div>
+        <div class="vl"></div>
+        <div class="timezone">
+          <p>TIMEZONE</p>
+          <p>UTC<%= timezone %></p>
+        </div>
+        <div class="vl"></div>
+        <div class="isp">
+          <p>ISP</p>
+          <p><%= isp %></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="mapBox">
+      <div id="map"></div>
+    </div>
+  </div>
+
+  <script>
+    var map = L.map('map').setView([ <%- lat %> , <%- lng %> ], 13);
+
+    var marker = L.marker([ <%- lat %> , <%- lng %> ]).addTo(map);
+
+    L.tileLayer('https://{s}.tile.jawg.io/jawg-streets/{z}/{x}/{y}{r}.png?access-token=oCrXYBNFr04dP8kHlfBEPJcvbZHsTRbBkEVQFEZMQaHO2WRv9osDurIHBTNWpVsi', {
+      maxZoom: 19,
+      attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    }).addTo(map);
+  </script>
+</body>
+
+</html>
