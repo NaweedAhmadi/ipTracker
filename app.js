@@ -1,6 +1,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const https = require("https");
+const config = require(__dirname + "/config.js");
 
 const app = express();
 app.set("view engine", "ejs");
@@ -27,9 +28,10 @@ app.get("/", function(req, res) {
         currentIP = searchIP;
       }
 
+      let api = config.api();
+
       // Second API - With the help of this API we get the location of the IP address
-      const locationURL = "https://geo.ipify.org/api/v2/country,city?apiKey=at_MLyNpOUdp9z8XRoGyj3wIZvvlrtjP&ipAddress=" + currentIP;
-      // at_MLyNpOUdp9z8XRoGyj3wIZvvlrtjP
+      const locationURL = "https://geo.ipify.org/api/v2/country,city?apiKey=" + api + "&ipAddress=" + currentIP;
 
       https.get(locationURL, function(response) {
         response.on("data", function(data) {
