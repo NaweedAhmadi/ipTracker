@@ -98,6 +98,10 @@ p:last-child {
     width: 300px;
   }
 
+  .header {
+    height: 420px;
+  }
+
   .ipInfo-box {
     width: 320px;
     height: auto;
