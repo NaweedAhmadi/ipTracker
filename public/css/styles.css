@@ -99,8 +99,8 @@ p:last-child {
   }
 
   .ipInfo-box {
-    width: 350px;
-    height: 320px;
+    width: 320px;
+    height: auto;
     left: calc(50% - 175px);
   }
 
