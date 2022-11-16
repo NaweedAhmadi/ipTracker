@@ -101,7 +101,7 @@ p:last-child {
   .ipInfo-box {
     width: 320px;
     height: auto;
-    left: calc(50% - 175px);
+    left: calc(50% - 160px);
   }
 
   .ipInfo {
